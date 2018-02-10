@@ -50,8 +50,7 @@ BODY {
 </style>
 </head>
 <body>
-<?
-$now = time();
+<?php $now = time();
 $birth_date = mktime($_POST['hour'], $_POST['minute'], 0, $_POST['month'], $_POST['day'], $_POST['year']);
 $target_date = mktime($_POST['hour'], $_POST['minute'], 0, $_POST['month'], $_POST['day'], date('Y'));
 if($now >= $target_date){
@@ -92,21 +91,21 @@ $eris = number_format($daysold2/$eris_orbit, 3, '.', ',');
 
 
 
-<? if($_POST['do'] == 'showdata'){ ?>
+<?php if($_POST['do'] == 'showdata'){ ?>
 
 
 
 <div class="lg_text_super_header">Your birthday is: <?= date('F d, Y h:i A', $birth_date) ?></div>
 
-<? if($target_date < $now && ($target_date + 86400) > $now){ ?><p>Yes!</p><? } ?>
-<? if($now < $target_date){ ?>
-<? $diff = $target_date - $now; ?>
+<?php if($target_date < $now && ($target_date + 86400) > $now){ ?><p>Yes!</p><?php } ?>
+<?php if($now < $target_date){ ?>
+<?php $diff = $target_date - $now; ?>
 <div class="lg_text_header">Your birthday party is...</div>
 <div><div class="lg_text"><?= number_format($diff / 86400, 1, '.', ',') ?></div> Days Away</div>
 <div><div class="lg_text"><?= number_format($diff / 3600, 1, '.', ',') ?></div> Hours Away</div>
 <div><div class="lg_text"><?= number_format($diff / 60, 0, '.', ',') ?></div> Minutes Away</div>
 <div><div class="lg_text"><?= number_format($diff, 0, '.', ',') ?></div> Seconds Away</div>
-<? } ?>
+<?php } ?>
 
 
 
@@ -122,35 +121,35 @@ $eris = number_format($daysold2/$eris_orbit, 3, '.', ',');
 
 
 <div class="lg_text_header">Milestones</div>
-<div<? if(time() > $birth_date + (86400 * 1000)){ ?> class="done"<? } ?>><div class="lg_text">1,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 1000)) ?></div>
-<div<? if(time() > $birth_date + (86400 * 5000)){ ?> class="done"<? } ?>><div class="lg_text">5,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 5000)) ?></div>
-<div<? if(time() > $birth_date + (86400 * 10000)){ ?> class="done"<? } ?>><div class="lg_text">10,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 10000)) ?></div>
-<div<? if(time() > $birth_date + (86400 * 15000)){ ?> class="done"<? } ?>><div class="lg_text">15,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 15000)) ?></div>
-<div<? if(time() > $birth_date + (86400 * 20000)){ ?> class="done"<? } ?>><div class="lg_text">20,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 20000)) ?></div>
-<div<? if(time() > $birth_date + (86400 * 20000)){ ?> class="done"<? } ?>><div class="lg_text">25,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 25000)) ?></div>
-<div<? if(time() > $birth_date + (86400 * 20000)){ ?> class="done"<? } ?>><div class="lg_text">30,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 30000)) ?></div>
-<div<? if(time() > $birth_date + (3600 * 100000)){ ?> class="done"<? } ?>><div class="lg_text">100,000th hour of life: </div><?= date('F d, Y h:i A', $birth_date + (3600 * 100000)) ?></div>
-<div<? if(time() > $birth_date + (3600 * 250000)){ ?> class="done"<? } ?>><div class="lg_text">250,000th hour of life: </div><?= date('F d, Y h:i A', $birth_date + (3600 * 250000)) ?></div>
-<div<? if(time() > $birth_date + (3600 * 500000)){ ?> class="done"<? } ?>><div class="lg_text">500,000th hour of life: </div><?= date('F d, Y h:i A', $birth_date + (3600 * 500000)) ?></div>
-<div<? if(time() > $birth_date + (60 * 1000000)){ ?> class="done"<? } ?>><div class="lg_text">1 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 1000000)) ?></div>
-<div<? if(time() > $birth_date + (60 * 10000000)){ ?> class="done"<? } ?>><div class="lg_text">10 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 10000000)) ?></div>
-<div<? if(time() > $birth_date + (60 * 15000000)){ ?> class="done"<? } ?>><div class="lg_text">15 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 15000000)) ?></div>
-<div<? if(time() > $birth_date + (60 * 20000000)){ ?> class="done"<? } ?>><div class="lg_text">20 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 20000000)) ?></div>
-<div<? if(time() > $birth_date + (1000000)){ ?> class="done"<? } ?>><div class="lg_text">1 Millionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 1000000) ?></div>
-<div<? if(time() > $birth_date + (500000000)){ ?> class="done"<? } ?>><div class="lg_text">500 Millionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 500000000) ?></div>
-<div<? if(time() > $birth_date + (1000000000)){ ?> class="done"<? } ?>><div class="lg_text">1 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 1000000000) ?></div>
-<div<? if(time() > $birth_date + (1500000000)){ ?> class="done"<? } ?>><div class="lg_text">1.5 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 1500000000) ?></div>
-<div<? if(time() > $birth_date + (2000000000)){ ?> class="done"<? } ?>><div class="lg_text">2 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 2000000000) ?></div>
-<div<? if(time() > $birth_date + (3000000000)){ ?> class="done"<? } ?>><div class="lg_text">3 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 3000000000) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 1000)){ ?> class="done"<?php } ?>><div class="lg_text">1,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 1000)) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 5000)){ ?> class="done"<?php } ?>><div class="lg_text">5,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 5000)) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 10000)){ ?> class="done"<?php } ?>><div class="lg_text">10,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 10000)) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 15000)){ ?> class="done"<?php } ?>><div class="lg_text">15,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 15000)) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 20000)){ ?> class="done"<?php } ?>><div class="lg_text">20,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 20000)) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 20000)){ ?> class="done"<?php } ?>><div class="lg_text">25,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 25000)) ?></div>
+<div<?php if(time() > $birth_date + (86400 * 20000)){ ?> class="done"<?php } ?>><div class="lg_text">30,000th day of life: </div><?= date('F d, Y h:i A', $birth_date + (86400 * 30000)) ?></div>
+<div<?php if(time() > $birth_date + (3600 * 100000)){ ?> class="done"<?php } ?>><div class="lg_text">100,000th hour of life: </div><?= date('F d, Y h:i A', $birth_date + (3600 * 100000)) ?></div>
+<div<?php if(time() > $birth_date + (3600 * 250000)){ ?> class="done"<?php } ?>><div class="lg_text">250,000th hour of life: </div><?= date('F d, Y h:i A', $birth_date + (3600 * 250000)) ?></div>
+<div<?php if(time() > $birth_date + (3600 * 500000)){ ?> class="done"<?php } ?>><div class="lg_text">500,000th hour of life: </div><?= date('F d, Y h:i A', $birth_date + (3600 * 500000)) ?></div>
+<div<?php if(time() > $birth_date + (60 * 1000000)){ ?> class="done"<?php } ?>><div class="lg_text">1 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 1000000)) ?></div>
+<div<?php if(time() > $birth_date + (60 * 10000000)){ ?> class="done"<?php } ?>><div class="lg_text">10 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 10000000)) ?></div>
+<div<?php if(time() > $birth_date + (60 * 15000000)){ ?> class="done"<?php } ?>><div class="lg_text">15 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 15000000)) ?></div>
+<div<?php if(time() > $birth_date + (60 * 20000000)){ ?> class="done"<?php } ?>><div class="lg_text">20 millionth minute of life: </div><?= date('F d, Y h:i A', $birth_date + (60 * 20000000)) ?></div>
+<div<?php if(time() > $birth_date + (1000000)){ ?> class="done"<?php } ?>><div class="lg_text">1 Millionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 1000000) ?></div>
+<div<?php if(time() > $birth_date + (500000000)){ ?> class="done"<?php } ?>><div class="lg_text">500 Millionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 500000000) ?></div>
+<div<?php if(time() > $birth_date + (1000000000)){ ?> class="done"<?php } ?>><div class="lg_text">1 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 1000000000) ?></div>
+<div<?php if(time() > $birth_date + (1500000000)){ ?> class="done"<?php } ?>><div class="lg_text">1.5 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 1500000000) ?></div>
+<div<?php if(time() > $birth_date + (2000000000)){ ?> class="done"<?php } ?>><div class="lg_text">2 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 2000000000) ?></div>
+<div<?php if(time() > $birth_date + (3000000000)){ ?> class="done"<?php } ?>><div class="lg_text">3 Billionth second of life: </div><?= date('F d, Y h:i A', $birth_date + 3000000000) ?></div>
 
 
 <div class="lg_text_header">You will be</div>
-<div<? if(time() > $birth_date18){ ?> class="done"<? } ?>><div class="lg_text">Age 18 on: </div><?= date('F d, Y h:i A', $birth_date18) ?></div>
-<div<? if(time() > $birth_date25){ ?> class="done"<? } ?>><div class="lg_text">Age 25 on: </div><?= date('F d, Y h:i A', $birth_date25) ?></div>
-<div<? if(time() > $birth_date30){ ?> class="done"<? } ?>><div class="lg_text">Age 30 on: </div><?= date('F d, Y h:i A', $birth_date30) ?></div>
-<div<? if(time() > $birth_date50){ ?> class="done"<? } ?>><div class="lg_text">Age 50 on: </div><?= date('F d, Y h:i A', $birth_date50) ?></div>
-<div<? if(time() > $birth_date75){ ?> class="done"<? } ?>><div class="lg_text">Age 75 on: </div><?= date('F d, Y h:i A', $birth_date75) ?></div>
-<div<? if(time() > $birth_date100){ ?> class="done"<? } ?>><div class="lg_text">Age 100 on: </div><?= date('F d, Y h:i A', $birth_date100) ?></div>
+<div<?php if(time() > $birth_date18){ ?> class="done"<?php } ?>><div class="lg_text">Age 18 on: </div><?= date('F d, Y h:i A', $birth_date18) ?></div>
+<div<?php if(time() > $birth_date25){ ?> class="done"<?php } ?>><div class="lg_text">Age 25 on: </div><?= date('F d, Y h:i A', $birth_date25) ?></div>
+<div<?php if(time() > $birth_date30){ ?> class="done"<?php } ?>><div class="lg_text">Age 30 on: </div><?= date('F d, Y h:i A', $birth_date30) ?></div>
+<div<?php if(time() > $birth_date50){ ?> class="done"<?php } ?>><div class="lg_text">Age 50 on: </div><?= date('F d, Y h:i A', $birth_date50) ?></div>
+<div<?php if(time() > $birth_date75){ ?> class="done"<?php } ?>><div class="lg_text">Age 75 on: </div><?= date('F d, Y h:i A', $birth_date75) ?></div>
+<div<?php if(time() > $birth_date100){ ?> class="done"<?php } ?>><div class="lg_text">Age 100 on: </div><?= date('F d, Y h:i A', $birth_date100) ?></div>
 
 <div class="lg_text_header">Your Age in:</div>
 <div><div class="lg_text"><?= $mercury ?> </div>Mercury Years</div>
@@ -162,7 +161,7 @@ $eris = number_format($daysold2/$eris_orbit, 3, '.', ',');
 <div><div class="lg_text"><?= $neptune ?> </div>Neptune Years</div>
 <div><div class="lg_text"><?= $pluto ?> </div>Pluto Years</div>
 <div><div class="lg_text"><?= $eris ?> </div>Eris Years</div>
-<? } else { ?>
+<?php } else { ?>
 <form action="?" method="post">
 <input name="do" type="hidden" value="showdata" />
 <table width="320" border="0" align="center" cellpadding="10" cellspacing="0">
@@ -173,11 +172,11 @@ $eris = number_format($daysold2/$eris_orbit, 3, '.', ',');
   <tr>
     <td width="103" align="right" class="sm_text"><strong>Year:</strong></td>
     <td width="177"><select name="year" id="year">
-      <? $count = date('Y'); ?>
-      <? while($count > date('Y') - 110){ ?>
+      <?php $count = date('Y'); ?>
+      <?php while($count > date('Y') - 110){ ?>
       <option value="<?= $count ?>"><?= $count ?></option>
-      <? $count--; ?>
-      <? } ?>
+      <?php $count--; ?>
+      <?php } ?>
     </select></td>
   </tr>
   <tr>
@@ -200,11 +199,11 @@ $eris = number_format($daysold2/$eris_orbit, 3, '.', ',');
   <tr>
     <td align="right" class="sm_text"><strong>Day:</strong></td>
     <td><select name="day" id="day">
-      <? $count = 1; ?>
-      <? while($count < 32){ ?>
+      <?php $count = 1; ?>
+      <?php while($count < 32){ ?>
       <option value="<?= $count ?>"><?= $count ?></option>
-      <? $count++; ?>
-      <? } ?>
+      <?php $count++; ?>
+      <?php } ?>
     </select></td>
   </tr>
   <tr>
@@ -239,31 +238,19 @@ $eris = number_format($daysold2/$eris_orbit, 3, '.', ',');
   <tr>
     <td align="right" class="sm_text"><strong>Minute:</strong></td>
     <td><select name="minute" id="minute">
-      <? $count = 0; ?>
-      <? while($count < 60){ ?>
+      <?php $count = 0; ?>
+      <?php while($count < 60){ ?>
       <option value="<?= $count ?>"><?= $count ?></option>
-      <? $count++; ?>
-      <? } ?>
+      <?php $count++; ?>
+      <?php } ?>
     </select></td>
   </tr>
   <tr>
     <td align="right">&nbsp;</td>
     <td><input type="submit" name="button" id="button" value="Submit" /></td>
   </tr>
-  <tr>
-    <td colspan="2" align="center" valign="top"><!-- FACEBOOK SHARE -->
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=241535305961054";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-share-button" data-href="http://www.15656.com/birthday.php" data-width="300" data-type="button_count"></div></td>
-    </tr>
 </table>
 </form>
-<? } ?>
+<?php } ?>
 </body>
 </html>
